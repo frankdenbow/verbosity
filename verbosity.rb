@@ -28,6 +28,6 @@ post '/check_verbosity' do
   number_of_words = params.split(" ").length
   number_of_characters = params.split(" ").join("").length
   verbosity_score = number_of_words * number_of_characters
-  response = verbosity_score.to_s
+  response = verbosity_score > 300 ? "Ridiculous" : verbosity_score
   return response
 end
