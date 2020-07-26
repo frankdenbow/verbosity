@@ -32,4 +32,4 @@ post '/check_verbosity' do
   return response
 end
 
-un Sinatra::Application.run!
+run Sinatra::Application.run!
