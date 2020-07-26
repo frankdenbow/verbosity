@@ -1,2 +1,2 @@
-require 'verbosity'
-run MyApp.new
+require './verbosity'
+run Sinatra::Application
