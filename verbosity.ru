@@ -31,3 +31,5 @@ post '/check_verbosity' do
   response = verbosity_score > 300 ? "Ridiculous" : verbosity_score
   return response
 end
+
+un Sinatra::Application.run!

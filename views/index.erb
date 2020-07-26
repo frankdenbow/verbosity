@@ -8,9 +8,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-
     <title>Verbosity</title>
   </head>
   <body>
@@ -51,8 +48,6 @@
           </div>
         </div>
       </div>
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -66,16 +61,16 @@
     <script type="text/javascript">
       $("#verbosity_submit").bind("click", function() {
           var the_statement = $("#verbose_statement").val();
-        $.ajax({
-          url: "/check_verbosity",
-          method: "POST",
-          data: the_statement,
-          dataType: "text",
-          success: function(data) {
-            console.log(data);
-            alert( "Your verbosity level is: " + data );
-          }
-        });
+          $.ajax({
+            url: "/check_verbosity",
+            method: "POST",
+            data: the_statement,
+            dataType: "text",
+            success: function(data) {
+              console.log(data);
+              alert( "Your verbosity level is: " + data );
+            }
+          });
       });
     </script>
 
