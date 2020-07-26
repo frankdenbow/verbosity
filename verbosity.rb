@@ -1,7 +1,11 @@
 require 'sinatra'
+require 'json'
 
 get '/' do
+  erb :index
+
   #Take Text Input From User
+
 
   # Loop through input, delimeter is " " "," ""-" is there a list of common delimeters to extract words?
     # Create a set containing all words - WORDS
@@ -16,5 +20,14 @@ get '/' do
       # type (emoji, contraction, pronoun etc)
     # Lookup in google trends to see average usage in modern times
 
-  # Create a score based on previous analysis 
+  # Create a score based on previous analysis
+end
+
+post '/check_verbosity' do
+  params = request.env["rack.input"].read
+  number_of_words = params.split(" ").length
+  number_of_characters = params.split(" ").join("").length
+  verbosity_score = number_of_words * number_of_characters
+  response = verbosity_score.to_s
+  return response
 end
