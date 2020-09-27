@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+require 'httpparty'
 
 get '/' do
   erb :index
@@ -24,9 +25,14 @@ get '/' do
 end
 
 post '/check_verbosity' do
+  # Get the input
   params = request.env["rack.input"].read
+
+  # Get the numbers to compute with
   number_of_words = params.split(" ").length
   number_of_characters = params.split(" ").join("").length
+  websters_dictionary_count =
+
   verbosity_score = number_of_words * number_of_characters
   response = verbosity_score > 300 ? "Ridiculous" : verbosity_score
   return response.to_s
